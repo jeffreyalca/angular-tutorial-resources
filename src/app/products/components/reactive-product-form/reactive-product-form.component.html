@@ -1,0 +1,31 @@
+<div class="container" fxLayout="row">
+  <div fxFlex="15%">
+  </div>
+  <div fxFlex="70%">
+      <h2>Product Form</h2>
+      <form [formGroup]="productForm">
+          <div fxLayout="column">
+              <div>
+                <mat-form-field>
+                    <input type="text" matInput placeholder="Product Name" formControlName="name">
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field>
+                    <input type="text" matInput placeholder="Quantity"  formControlName="quantity">
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field>
+                    <input type="text" matInput placeholder="Cost"  formControlName="cost">
+                </mat-form-field>
+              </div>
+              <div>
+                <button mat-button [disabled]="productForm.invalid">Submit</button>
+              </div>
+            </div>
+      </form>
+  </div>
+  <div fxFlex="15%">
+  </div>
+</div>
