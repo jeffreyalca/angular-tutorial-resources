@@ -1,6 +1,7 @@
 'use strict';
 
 const fs = require('fs');
+const bodyParser = require('body-parser')
 const jsonServer = require('json-server');
 const jwt = require('jsonwebtoken');
 
@@ -10,6 +11,8 @@ const router = jsonServer.router('./api-mock/db/db.json');
 
 const userdb = JSON.parse(fs.readFileSync('./api-mock/db/users.json', 'UTF-8'));
 
+server.use(bodyParser.urlencoded({extended: true}))
+server.use(bodyParser.json())
 server.use(jsonServer.defaults());
 
 const SECRET_KEY = '123456789'
@@ -32,6 +35,7 @@ function isAuthenticated({email, password}){
 }
 
 server.post('/auth/login', (req, res) => {
+    console.log(req)
     const {email, password} = req.body
     if (isAuthenticated({email, password}) === false) {
       const status = 401
