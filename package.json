@@ -7,7 +7,10 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "generate": "node ./generateFakeData.js > ./api-mock/db/db.json",
+    "api-mock": "json-server --watch ./api-mock/db/db.json",
+    "start-auth": "node ./api-mock/server.js"
   },
   "private": true,
   "dependencies": {
@@ -25,6 +28,7 @@
     "core-js": "^2.5.4",
     "faker": "^4.1.0",
     "hammerjs": "^2.0.8",
+    "jsonwebtoken": "^8.5.1",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26"
